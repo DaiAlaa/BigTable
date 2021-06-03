@@ -13,17 +13,19 @@ var socketmaster = io.connect("http://localhost:4000/", {
     reconnection: true
 });
 socketmaster.on('connect', function () {
-   console.log('connected to localhost:4000');
-   socketmaster.on('meta-data',function (data){
-     console.log('meta data:', data); 
-   })
-   
+   console.log('connected to localhost:4000');   
 });
+socketmaster.on('meta-data',function (data){
+    console.log('meta data:', data);     
+})
 socket.on('connect', function () {
     console.log('connected to localhost:3000');
-   data={'read': {url:"https://www.udem33y.com/lets-learn-javascript-by-coding/" }}
-   socket.emit('insert', data)
+    data={'read': {url:"https://www.udem33y.com/lets-learn-javascript-by-coding/" }}
+    socket.emit('insert', data)
     
 });
 
-
+//get metadata async function
+//update metdata async function
+//choose which tablet server to send query to
+//emit out of connect
