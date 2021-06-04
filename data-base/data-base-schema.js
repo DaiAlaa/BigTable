@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-
+var conn1   = mongoose.createConnection(process.env.tabletServer1,{ useUnifiedTopology: true });
+var conn2   = mongoose.createConnection(process.env.tabletServer2,{ useUnifiedTopology: true });
+var conn3  = mongoose.createConnection(process.env.tabletServer3,{ useUnifiedTopology: true });
+var connMaster = mongoose.createConnection(process.env.master,{ useUnifiedTopology: true });
 const courseSchema = new mongoose.Schema({
     "course_id":Number,
     "course_title":String,
@@ -20,11 +23,10 @@ const metadataSchema = new mongoose.Schema({
     "end": String,
     "tabletServerId": { type: Number, unique: true }
 });
-const Course = mongoose.model('Course', courseSchema);
-const Metadata = mongoose.model('Metadata', metadataSchema);
+const Metadata = connMaster.model('Metadata', metadataSchema);
+var Course = conn1.model('Course', courseSchema);
+var CourseMaster = connMaster.model('Course', courseSchema);
+var CourseA = conn2.model('Course', courseSchema);
+var CourseB = conn3.model('Course', courseSchema);
 
-module.exports = {Course, Metadata};
-
-
-
-
+module.exports = {Course, CourseA, CourseB, CourseMaster, Metadata};
