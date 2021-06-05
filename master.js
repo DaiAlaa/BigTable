@@ -15,8 +15,9 @@ colors.setTheme({
 require("localtunnel")({ port: 4000, subdomain: "master123321kareem3m" }).then(() => {
     console.log("Master Online".info);
   });
-
 require('dotenv/config'); 
+db = require('./data-base/data-base-operations')
+
 const winston = require('winston');
 // const connection = require('./master/data-base-connection');
 var express = require('express');
@@ -35,36 +36,6 @@ var server = app.listen(port, function () {
    console.log("Example app listening at http://%s:%s", host, port)
 })
 
-async function DeleteRow(url){
-    return await CourseMaster.deleteMany({url: url});
- }
- // array of objects
- async function AddRow(data){
-    try{ 
-    return await CourseMaster.insertMany(data);
-    } catch(e){
-        
-    }
- }
- // string
- async function ReadRows(url){
-     return await CourseMaster.find({url: url},{},{}, function(error, result) {
-         return result
-     });
- }
- // string, array of objects
- async function Set(url, data){
-     return await CourseMaster.updateMany({url: url},{$set:data}, function(error, result) {
-         return result
-     });
- } 
- // string, array of objects of empty strings
- async function DeleteCells(url, data){
-     return await CourseMaster.updateMany({url: url},{$unset:data}, function(error, result) {
-         return result
-     });
- }
-
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.json(),
@@ -75,9 +46,9 @@ const logger = winston.createLogger({
 });
 
 
-metadataTablet1 = {}
-metadataTablet2 = {}
-metadataTablet3 = {}
+metadataTabletServer1 = {}
+metadataTabletServer2 = {}
+metadataClient = {}
 dataTablet1 = []
 dataTablet2 = []
 dataTablet3 = []
@@ -98,51 +69,40 @@ async function DivideData(){
     dataTablet3 = courses.slice(length+length/2, courses.length);
     console.log(dataTablet1.length, dataTablet2.length, dataTablet3.length)
 
-    metadataTablet1 = { start: dataTablet1[0].url, end: dataTablet1[dataTablet1.length-1].url, tabletServerId : 1 };
-    metadataTablet2 = { start: dataTablet2[0].url, end: dataTablet2[dataTablet2.length-1].url, tabletServerId : 2 };
-    metadataTablet3 = { start: dataTablet3[0].url, end: dataTablet3[dataTablet3.length-1].url, tabletServerId : 3 };
-    try{
-        await Metadata.insertMany([metadataTablet1, metadataTablet2, metadataTablet3]);
-    }
-    catch(except){
-        
-    }
+    metadataTabletServer1 = {start: dataTablet1[0].url, end: dataTablet1[dataTablet2.length-1].url}
+
+    metadataTabletServer2 = [{start: dataTablet2[0].url, end: dataTablet2[dataTablet2.length-1].url},
+                             {start: dataTablet3[0].url, end: dataTablet3[dataTablet3.length-1].url}]
+    metadataClient = [{start: dataTablet2[0].url,end: dataTablet3[dataTablet3.length-1].url , url : "http://localhost:5000"}, 
+                      {start: dataTablet1[0].url, end: dataTablet1[dataTablet1.length-1].url, url : "http://localhost:3000"}]
+
+
+
 }
-async function getMetadata(){
-    return await Metadata.find({},[], {
-        sort: {
-            tabletServerId: 1 
-        },
-    }, function(error, result) {
-        return result
-    });
-    
-}
+
 
 var io = require('socket.io')(server);
 io.on('connection', async function (socket) {
     await DivideData();
-    metaData = await getMetadata();
-    console.log(metaData);
-    socket.emit('tablet-data-1', {data:[dataTablet1,dataTablet2], metadata:[metaData[0],metaData[1]]});
-    socket.emit('tablet-data-2', {data:dataTablet3, metadata:metaData[2]});
-    socket.emit('meta-data', metaData);
+    socket.emit('tablet-data-2', {data:[dataTablet2,dataTablet3], metadata: metadataTabletServer2});
+    socket.emit('tablet-data-1', {data:dataTablet1, metadata: metadataTabletServer1 });
+    socket.emit('meta-data', metadataClient);
     
     socket.on('update', async function(data){
         for (let i=0;i<data[0].length;i++){
             await CourseMaster.updateOne({url:data[0][i]}, {$set:data[1][i]});
         }
         await DivideData();
-        metaData = await getMetadata();
-        socket.emit('tablet-data-1', {data:[dataTablet1,dataTablet2], metadata:[metaData[0],metaData[1]]});
-        socket.emit('tablet-data-2', {data:dataTablet3, metadata:metaData[2]});
-        socket.emit('meta-data', metaData);    
+        socket.emit('tablet-data-2', {data:[dataTablet2,dataTablet3], metadata: metadataTabletServer2});
+        socket.emit('tablet-data-1', {data:dataTablet1, metadata: metadataTabletServer1 });
+        socket.emit('meta-data', metadataClient);
+    
     })
-    socket.on('Delete row', async function(data){
-        await DeleteRow(data);
+    socket.on('deleteRows', async function(data){
+        await db.DeleteRow(data, 4);
     })
-    socket.on('Add row', async function(data){
-        await AddRow(data);
+    socket.on('addRow', async function(data){
+        await db.AddRow(data, 4);
     })
     socket.on('Message', function(message){
         logger.info({"message":message,"Port":8081,"level":"info"})

@@ -1,90 +1,100 @@
 const MASTER_URL = "http://localhost:4000";
 var colors = require("colors");
 colors.setTheme({
-  input: "grey",
-  verbose: ["cyan", "bold"],
-  prompt: "grey",
-  info: ["green", "bold"],
-  data: "grey",
-  help: "cyan",
-  warn: "yellow",
-  debug: "blue",
-  error: "red",
-});
-
-require("localtunnel")({ port: 4000, subdomain: "ts1kareem3m" }).then(() => {
-    console.log("Tablet Server Online".info);
+    input: "grey",
+    verbose: ["cyan", "bold"],
+    prompt: "grey",
+    info: ["green", "bold"],
+    data: "grey",
+    help: "cyan",
+    warn: "yellow",
+    debug: "blue",
+    error: "red",
   });
+  
+require("localtunnel")({ port: 3000, subdomain: "ts2kareem3m" }).then(() => {
+    console.log("Tablet Server Online".info);
+});
 
-
-require('dotenv/config'); 
-db = require('./data-base/data-base-operations')
-// const connection = require('./tablet-server/data-base-connection');
-var express = require('express');
+require("dotenv/config");
+const { Course: Course } = require("./data-base/data-base-schema");
+var express = require("express");
 const app = express();
-// connection(app);
-const { Course: Course, Metadata: Metadata }= require('./data-base/data-base-schema');
+db = require('./data-base/data-base-operations')
 
-// TODO get tablet of given Key
-// TODO put online url
-// TODO el operations been el client w el server tablet
-
-var port = "3000"
+var port = "3000";
 var server = app.listen(port, function () {
-   var host = "localhost"
-   console.log("Example app listening at http://%s:%s", host, port)
-})
+  var host = "localhost";
+  console.log("Example app listening at http://%s:%s", host, port);
+});
 
-
-var io = require('socket.io-client');
+var io = require("socket.io-client");
 var socket1 = io.connect(MASTER_URL, {
-    reconnection: true
+  reconnection: true,
 });
 
-socket1.on('connect', function () {
-    console.log('connected to Master'.info);    
+socket1.on("connect", function () {
+  console.log("connected to Master");
 });
-socket1.on('tablet-data-2',async function (data){
-    await Course.deleteMany({});
-    await Course.insertMany(data.data);
-    socket1.emit('Message', "hi")
-    // await Metadata.deleteMany({});
-    // await Metadata.insertMany(data.metadata);    
-})
-arr =[]
-var ioserver = require('socket.io')(server);
-ioserver.on('connection', function (socket) {
-    socket.on('Add row', async function(data){
-        result = await db.AddRow(data[0]);
-        socket.emit('Add row', result); 
-        socket1.emit('Add row', data[0]); 
-
-    })
-    socket.on('Delete row', async function(data){
-        result = await db.DeleteRow(data[0]);
-        socket.emit('Delete row', result); 
-        socket1.emit('Delete row', data[0]); 
-    })
-    socket.on('Read rows',async function(data){
-        result = db.ReadRows(data[0]);  
-        socket.emit('Read rows',result);  
-    })
-    socket.on('Delete cells', async function(data){
-        arr.push(data[0]);
-        result = await db.DeleteCells(data[0], data[1]);
-        socket.emit('Delete cells', result);  
-    })
-    socket.on('Set',async function(data){
-        arr.push(data[0]);
-        result = await db.set(data[0], data[1]);
-        socket.emit('Set',result);  
-
-    })
-    setInterval(async ()=>{
-        result = await Course.find({url:arr},{_id:0});
-        arr=new Set(arr);
-        socket1.emit('update', [arr,result]);
-        arr=[]
-    }, 1000*15*60)
-}); 
-
+metadata=[]
+///////////////////
+socket1.on("tablet-data-1", async function (data) {
+  await Course.deleteMany({});
+  await Course.insertMany(data.data);
+  metadata=data.metadata
+  console.log(metadata)
+});
+arr = [];
+function updateInsert(cols, data) {
+  dataObject = {};
+  for (i = 0; i < cols.length; i++) dataObject[cols[i]] = data[i];
+     return dataObject;
+}
+function deleteCells(cols){
+    dataObject = {};
+    for (i = 0; i < cols.length; i++) dataObject[cols[i]] = "";
+       return dataObject;
+}
+var ioserver = require("socket.io")(server);
+ioserver.on("connection", function (socket) {
+    console.log("Client connected".info)
+  socket.on("addRow", async function (data) {
+    console.log(data)
+    dataObject = updateInsert(data["cols"], data["data"]);
+    result = await db.AddRow({url:data["rowKey"], ...dataObject}, 3);
+    socket.emit("addRow", result);
+    socket1.emit("addRow", {url:data["rowKey"], ...dataObject});
+  });
+  socket.on("deleteRows", async function (data) {
+    console.log(data)
+    result = await db.DeleteRow(data,3);
+    socket.emit("deleteRows", result);
+    socket1.emit("deleteRows", data);
+  });
+  socket.on("readRows", async function (data) {
+    console.log(data)
+    result = db.ReadRows(data, 3);
+    socket.emit("readRows", result);
+  });
+  socket.on("deleteCells", async function (data) {
+    console.log(data)
+    arr.push(data["rowKey"]);
+    dataObject = deleteCells(data["cols"]);
+    result = await db.DeleteCells(data["rowKey"],dataObject, 3);
+    socket.emit("deleteCells", result);
+  });
+  socket.on("setCells", async function (data) {
+    console.log(data)
+    arr.push(data["rowKey"]);
+    dataObject = updateInsert(data["cols"], data["data"]);
+    console.log(dataObject)
+    result = await db.set(data["rowKey"],dataObject, 3);
+    socket.emit("setCells", result);
+  });
+  setInterval(async () => {
+    result = await Course.find({ url: arr }, { _id: 0 });
+    arr = new Set(arr);
+    socket1.emit("update", [arr, result]);
+    arr = [];
+  }, 1000 * 15 * 60);
+});

@@ -17,6 +17,9 @@ require("localtunnel")({ port: 5000, subdomain: "ts2kareem3m" }).then(() => {
 });
 
 require("dotenv/config");
+const Course = require('./data-base/data-base-schema');
+const { CourseA: CourseA } = require("./data-base/data-base-schema");
+const { CourseB: CourseB } = require("./data-base/data-base-schema");
 var express = require("express");
 const app = express();
 db = require('./data-base/data-base-operations')
@@ -35,24 +38,23 @@ var socket1 = io.connect(MASTER_URL, {
 socket1.on("connect", function () {
   console.log("connected to Master");
 });
+metadata=[]
 ///////////////////
-socket1.on("tablet-data-1", async function (data) {
+socket1.on("tablet-data-2", async function (data) {
   await CourseA.deleteMany({});
   await CourseA.insertMany(data.data[0]);
   await CourseB.deleteMany({});
   await CourseB.insertMany(data.data[1]);
-  await MetadataTabletServer1.deleteMany({});
-  await MetadataTabletServer1.insertMany(data.metadata);
-  reult = await MetadataTabletServer1.find({});
-  console.log(reult);
+  metadata=data.metadata
+  console.log(metadata)
 });
 arr = [];
-async function updateInsert(cols, data) {
+function updateInsert(cols, data) {
   dataObject = {};
   for (i = 0; i < cols.length; i++) dataObject[cols[i]] = data[i];
      return dataObject;
 }
-async function deleteCells(cols){
+function deleteCells(cols){
     dataObject = {};
     for (i = 0; i < cols.length; i++) dataObject[cols[i]] = "";
        return dataObject;
@@ -61,36 +63,51 @@ var ioserver = require("socket.io")(server);
 ioserver.on("connection", function (socket) {
     console.log("Client connected".info)
   socket.on("addRow", async function (data) {
-    dataObject = updateInsert(data[cols], data[data]);
-    result = await db.AddRow(data[rowKey],dataObject);
+    console.log(data)
+    dataObject = updateInsert(data["cols"], data["data"]);
+    result = await db.AddRow({url:data["rowKey"], ...dataObject}, Tablet(data["rowKey"]));
     socket.emit("addRow", result);
-    socket1.emit("addRow", data);
+    socket1.emit("addRow", {url:data["rowKey"], ...dataObject});
   });
   socket.on("deleteRows", async function (data) {
-    result = await db.DeleteRow(data);
+    console.log(data)
+    result = await db.DeleteRow(data,Tablet(data[0]));
     socket.emit("deleteRows", result);
     socket1.emit("deleteRows", data);
   });
   socket.on("readRows", async function (data) {
-    result = db.ReadRows(data);
+    console.log(data)
+    result = db.ReadRows(data, Tablet(data[0]));
     socket.emit("readRows", result);
   });
   socket.on("deleteCells", async function (data) {
-    arr.push(data[0]);
-    dataObject = deleteCells(data[cols]);
-    result = await db.DeleteCells(data[rowKey],dataObject);
+    console.log(data)
+    arr.push(data["rowKey"]);
+    dataObject = deleteCells(data["cols"]);
+    result = await db.DeleteCells(data["rowKey"],dataObject, Tablet(data["rowKey"]));
     socket.emit("deleteCells", result);
   });
   socket.on("setCells", async function (data) {
-    dataObject = updateInsert(data[cols], data[data]);
-    arr.push(data[0]);
-    result = await db.set(data[rowKey],dataObject);
+    console.log(data)
+    arr.push(data["rowKey"]);
+    dataObject = updateInsert(data["cols"], data["data"]);
+    console.log(dataObject)
+    result = await db.set(data["rowKey"],dataObject, Tablet(data["rowKey"]));
     socket.emit("setCells", result);
   });
   setInterval(async () => {
-    result = await Course.find({ url: arr }, { _id: 0 });
+    /////////////////////////////////////////
+    result = await CourseA.find({ url: arr }, { _id: 0 });
+    result2 = await CourseB.find({ url: arr }, { _id: 0 });
+    /////////////////////////////////////////
     arr = new Set(arr);
     socket1.emit("update", [arr, result]);
     arr = [];
   }, 1000 * 15 * 60);
 });
+function Tablet(rowKey) {
+  index = metadata.findIndex((t) => rowKey >= t.start && rowKey <= t.end);
+  if(index==-1)
+    index = 1;
+  return index+1;
+}
