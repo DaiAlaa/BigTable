@@ -1,4 +1,4 @@
-const MASTER_URL = "https://master123321kareem3m.loca.lt";
+const MASTER_URL = "http://localhost:4000";
 var colors = require("colors");
 colors.setTheme({
   input: "grey",
@@ -123,6 +123,7 @@ var io = require('socket.io')(server);
 io.on('connection', async function (socket) {
     await DivideData();
     metaData = await getMetadata();
+    console.log(metaData);
     socket.emit('tablet-data-1', {data:[dataTablet1,dataTablet2], metadata:[metaData[0],metaData[1]]});
     socket.emit('tablet-data-2', {data:dataTablet3, metadata:metaData[2]});
     socket.emit('meta-data', metaData);
