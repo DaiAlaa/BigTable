@@ -1,4 +1,4 @@
-const MASTER_URL = "https://masterkareem3m.loca.lt";
+const MASTER_URL = "https://master123321kareem3m.loca.lt";
 var colors = require("colors");
 colors.setTheme({
   input: "grey",
@@ -12,7 +12,7 @@ colors.setTheme({
   error: "red",
 });
 
-require("localtunnel")({ port: 4000, subdomain: "masterkareem3m" }).then(() => {
+require("localtunnel")({ port: 4000, subdomain: "master123321kareem3m" }).then(() => {
     console.log("Master Online".info);
   });
 

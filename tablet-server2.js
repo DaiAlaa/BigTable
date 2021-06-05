@@ -1,3 +1,4 @@
+const MASTER_URL = "https://master123321kareem3m.loca.lt";
 var colors = require("colors");
 colors.setTheme({
     input: "grey",
@@ -27,7 +28,7 @@ var server = app.listen(port, function () {
 });
 
 var io = require("socket.io-client");
-var socket1 = io.connect("http://localhost:4000/", {
+var socket1 = io.connect(MASTER_URL, {
   reconnection: true,
 });
 
