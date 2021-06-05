@@ -1,4 +1,4 @@
-const MASTER_URL = "https://master123321kareem3m.loca.lt";
+const MASTER_URL = "http://localhost:4000";
 var colors = require("colors");
 colors.setTheme({
     input: "grey",

@@ -14,7 +14,7 @@ colors.setTheme({
   error: "red",
 });
 
-const MASTER_URL = "https://master123321kareem3m.loca.lt";
+const MASTER_URL = "http://localhost:4000";
 
 var metaData = null;
 var master = io.connect(MASTER_URL);
