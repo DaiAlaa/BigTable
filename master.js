@@ -1,4 +1,20 @@
+const MASTER_URL = "https://masterkareem3m.loca.lt";
+var colors = require("colors");
+colors.setTheme({
+  input: "grey",
+  verbose: ["cyan", "bold"],
+  prompt: "grey",
+  info: ["green", "bold"],
+  data: "grey",
+  help: "cyan",
+  warn: "yellow",
+  debug: "blue",
+  error: "red",
+});
 
+require("localtunnel")({ port: 4000, subdomain: "masterkareem3m" }).then(() => {
+    console.log("Master Online".info);
+  });
 
 require('dotenv/config'); 
 const winston = require('winston');
