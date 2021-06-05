@@ -27,6 +27,7 @@ const Metadata = connMaster.model('Metadata', metadataSchema);
 var Course = conn1.model('Course', courseSchema);
 var CourseMaster = connMaster.model('Course', courseSchema);
 var CourseA = conn2.model('Course', courseSchema);
+var MetadataTabletServer1 = conn2.model('Metadata', metadataSchema);
 var CourseB = conn3.model('Course', courseSchema);
 
-module.exports = {Course, CourseA, CourseB, CourseMaster, Metadata};
+module.exports = {Course, CourseA, CourseB, CourseMaster, Metadata, MetadataTabletServer1};
