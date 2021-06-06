@@ -1,6 +1,5 @@
-const MASTER_URL = "https://master123321kareem3m.loca.lt";
+const MASTER_URL = "http://localhost:4000";
 var colors = require("colors");
-var logger = require('./logger.js');
 
 colors.setTheme({
     input: "grey",
@@ -15,7 +14,7 @@ colors.setTheme({
   });
   
 require("localtunnel")({ port: 5000, subdomain: "ts2777kareem3m" }).then(() => {
-    console.log("Tablet Server Online".info);
+    console.log("Tablet Server Online");
 });
 
 require("dotenv/config");
@@ -38,9 +37,12 @@ var socket1 = io.connect(MASTER_URL, {
 });
 
 socket1.on("connect", function () {
-  logger.info({"message":"Tablet Server 2 connected to master"});
+  socket1.emit("message", {"message":"Tablet Server 2 connected to master"});
   console.log("connected to Master");
 });
+socket1.on('message', async function(message){
+  socket1.emit("message", message);
+})
 rowKey = [];
 updatedData = [];
 ///////////////////
@@ -50,7 +52,7 @@ socket1.on("tablet-data-2", async function (data) {
   await CourseB.deleteMany({});
   await CourseB.insertMany(data.data[1]);
   metadata=data.metadata
-  logger.info({"message":"Tablet Server 2 recieved metadata"});
+  socket1.emit("message", {"message":"Tablet Server 2 recieved metadata"});
   console.log("meta recieved", metadata)
 });
 arr = [];
@@ -68,7 +70,7 @@ var ioserver = require("socket.io")(server);
 ioserver.on("connection", function (socket) {
     console.log("Client connected")
     socket.on("addRow", async function (data) {
-      logger.info({"message":"Tablet Server 2 received query addRow", "rowKey": data["rowKey"]});
+      socket1.emit("message", {"message":"Tablet Server 2 received query addRow", "rowKey": data["rowKey"]});
       dataObject = updateInsert(data["cols"], data["data"]);
       result = await db.AddRow({url:data["rowKey"], ...dataObject}, Tablet(data["rowKey"]));
       socket.emit("addRow", result);
@@ -76,7 +78,7 @@ ioserver.on("connection", function (socket) {
   });
   socket.on("deleteRows", async function (data) {
     Mutex.runExclusive( async () => {
-      logger.info({"message":"Tablet Server 2 received query deleteRows","rowKey": data["rowKey"]});
+      socket1.emit("message", {"message":"Tablet Server 2 received query deleteRows","rowKey": data["rowKey"]});
       result = await db.DeleteRow(data,Tablet(data[0]));
       socket.emit("deleteRows", result);
       socket1.emit("deleteRows", data);
@@ -84,7 +86,7 @@ ioserver.on("connection", function (socket) {
   });
   socket.on("readRows", async function (data) {
     Mutex.runExclusive( async () => {
-      logger.info({"message":"Tablet Server 2 received query readRows", "rowKeys": data});
+      socket1.emit("message", {"message":"Tablet Server 2 received query readRows", "rowKeys": data});
       result = await db.ReadRows(data, Tablet(data[0]));
       console.log(data, result)
       socket.emit("readRows", result);
@@ -93,7 +95,7 @@ ioserver.on("connection", function (socket) {
   socket.on("deleteCells", async function (data) {
     Mutex.runExclusive( async () => {
 
-      logger.info({"message":"Tablet Server 2 received query deleteCells", "rowKey": data["rowKey"]});
+      socket1.emit("message", {"message":"Tablet Server 2 received query deleteCells", "rowKey": data["rowKey"]});
 
       dataObject = deleteCells(data["cols"]);
       result = await db.DeleteCells(data["rowKey"],dataObject, Tablet(data["rowKey"]));
@@ -106,7 +108,7 @@ ioserver.on("connection", function (socket) {
   });
   socket.on("setCells", async function (data) {
     Mutex.runExclusive( async () => {
-      logger.info({"message":"Tablet Server 2 received query setCells", "data": data});
+      socket1.emit("message", {"message":"Tablet Server 2 received query setCells", "data": data});
       dataObject = updateInsert(data["cols"], data["data"]);
       result = await db.set(data["rowKey"],dataObject, Tablet(data["rowKey"]));
       socket.emit("setCells", result);
@@ -117,7 +119,7 @@ ioserver.on("connection", function (socket) {
   });
   setInterval(async () => {
     socket1.emit("update", [rowKey, updatedData]);
-    logger.info({"message":"Tablet Server 2 send updated data to master" });
+    socket1.emit("message", {"message":"Tablet Server 2 send updated data to master" });
     rowKey = [];
     updatedData = [];
   }, 1000 * 1 * 60);

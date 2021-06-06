@@ -1,6 +1,5 @@
 var io = require("socket.io-client");
 var colors = require("colors");
-var logger = require('./logger.js');
 
 colors.setTheme({
   input: "grey",
@@ -14,18 +13,18 @@ colors.setTheme({
   error: "red",
 });
 
-const MASTER_URL = "https://master123321kareem3m.loca.lt";
+const MASTER_URL ="http://localhost:4000";
 
 var metaData = null;
 var master = io.connect(MASTER_URL);
 
 master.on("connect", () => {
-  console.log("Connected to master".info);
-  logger.info({"message":"Client: connected to master"});
+  console.log("Connected to master");
+  master.emit("message", {"message":"Client: connected to master"});
   master.on("meta-data", (newMetaData) => {
     metaData = newMetaData;
-    console.log("Received Metadata".info, metaData);
-    logger.info({"message":"Client: receive new metadata"});
+    console.log("Received Metadata", metaData);
+    master.emit("message",{"message":"Client: receive new metadata"});
   });
 });
 
@@ -104,12 +103,12 @@ function TabletServerURL(rowKey) {
 function send(event, data, socket) {
   if (socket.connected) {
     socket.emit(event, data);
-    logger.info({"message":"Client: " + socket.id +" send Query "+ event, "rowKey": data});
+    socket.emit("message",{"message":"Client: " + socket.id +" send Query "+ event, "rowKey": data});
   } else {
     socket.on("connect", () => {
       setResponseListeners(socket)
       socket.emit(event, data);
-      logger.info({"message":"Client: " + socket.id +" send Query "+ event, "request": data});
+      socket.emit("message",{"message":"Client: " + socket.id +" send Query "+ event, "request": data});
     });
   }
 }
@@ -118,28 +117,28 @@ function setResponseListeners(socket) {
   socket.on("setCells", (response) => {
       console.log("Response received for setCells");
       console.log(response);
-      logger.info({"message":"Client: " + socket.id +" receive response for setCells"});
+      socket.emit("message",{"message":"Client: " + socket.id +" receive response for setCells"});
     });
   socket.on("deleteCells", (response) => {
       console.log("Response received for deleteCells");
       console.log(response);
-      logger.info({"message":"Client: " + socket.id +" receive response for deleteCells"});
+      socket.emit("message",{"message":"Client: " + socket.id +" receive response for deleteCells"});
   });
   socket.on("addRow", (response) => {
       console.log("Response received for addRow");
       console.log(response);
-      logger.info({"message":"Client: " + socket.id +" receive response for addRow"});
+      socket.emit("message",{"message":"Client: " + socket.id +" receive response for addRow"});
 
   });
   socket.on("deleteRows", (response) => {
       console.log("Response received for deleteRows");
       console.log(response);
-      logger.info({"message":"Client: " + socket.id +" receive response for deleteRows"});
+      socket.emit("message",{"message":"Client: " + socket.id +" receive response for deleteRows"});
   });
   socket.on("readRows", (response) => {
       console.log("Response received for readRows");
       console.log(response);
-      logger.info({"message":"Client: " + socket.id +" receive response for readRows", "response": response});
+      socket.emit("message",{"message":"Client: " + socket.id +" receive response for readRows", "response": response});
   });
   
 }
