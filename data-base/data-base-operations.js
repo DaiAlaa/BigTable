@@ -22,7 +22,7 @@ async function DeleteRow(url, num) {
   async function ReadRows(url, num) {
     if (num == 1) return await CourseA.find({ url: url }, {}, {});
     else if(num == 2)  return await CourseB.find({ url: url }, {}, {});
-    else if(num == 3)  return await CourseB.find({ url: url }, {}, {});
+    else if(num == 3)  return await Course.find({ url: url }, {}, {});
     else return await CourseMaster.find({ url: url }, {}, {});
 }
   async function set(url, data, num) {

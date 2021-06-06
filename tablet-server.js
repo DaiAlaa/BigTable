@@ -72,8 +72,8 @@ ioserver.on("connection", function (socket) {
     socket1.emit("deleteRows", data);
   });
   socket.on("readRows", async function (data) {
-    console.log(data)
-    result = db.ReadRows(data, 3);
+    result = await db.ReadRows(data, 3);
+    console.log(data, result)
     socket.emit("readRows", result);
   });
   socket.on("deleteCells", async function (data) {
@@ -96,5 +96,5 @@ ioserver.on("connection", function (socket) {
     arr = new Set(arr);
     socket1.emit("update", [arr, result]);
     arr = [];
-  }, 1000 * 15 * 60);
+  }, 1000 * 1 * 60);
 });

@@ -40,7 +40,6 @@ const logger = winston.createLogger({
   level: 'info',
   format: winston.format.json(),
   transports: [
-    new winston.transports.Console(),
     new winston.transports.File({ filename: 'output.log' }),
   ],
 });
@@ -96,6 +95,7 @@ io.on('connection', async function (socket) {
         socket.emit('tablet-data-2', {data:[dataTablet2,dataTablet3], metadata: metadataTabletServer2});
         socket.emit('tablet-data-1', {data:dataTablet1, metadata: metadataTabletServer1 });
         socket.emit('meta-data', metadataClient);
+        console.log(metadataClient, dataTablet2.length, dataTablet3.length, dataTablet1.length)
     
     })
     socket.on('deleteRows', async function(data){
@@ -105,7 +105,7 @@ io.on('connection', async function (socket) {
         await db.AddRow(data, 4);
     })
     socket.on('Message', function(message){
-        logger.info({"message":message,"Port":8081,"level":"info"})
+        logger.info({"message":message,"SocketId":socket.id,"level":"info"});
     })
 
 }); 
