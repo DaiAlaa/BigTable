@@ -66,46 +66,55 @@ var ioserver = require("socket.io")(server);
 ioserver.on("connection", function (socket) {
   console.log("Client connected".info)
   socket.on("addRow", async function (data) {
+    Mutex.runExclusive( async () => {
       logger.info({"message":"Tablet Server 1 received query addRow", "rowKey": data["rowKey"]});
       dataObject = updateInsert(data["cols"], data["data"]);
       result = await db.AddRow({url:data["rowKey"], ...dataObject}, 3);
       socket.emit("addRow", result);
       socket1.emit("addRow", {url:data["rowKey"], ...dataObject});
+    })
   });
   socket.on("deleteRows", async function (data) {
-    logger.info({"message":"Tablet Server 1 received query deleteRows","rowKey": data["rowKey"]});
-    console.log(data)
-    result = await db.DeleteRow(data,3);
-    socket.emit("deleteRows", result);
-    socket1.emit("deleteRows", data);
+    Mutex.runExclusive( async () => {
+      logger.info({"message":"Tablet Server 1 received query deleteRows","rowKey": data["rowKey"]});
+      console.log(data)
+      result = await db.DeleteRow(data,3);
+      socket.emit("deleteRows", result);
+      socket1.emit("deleteRows", data);
+    })
   });
   socket.on("readRows", async function (data) {
-    logger.info({"message":"Tablet Server 1 received query readRows", "rowKeys": data});
-    result = await db.ReadRows(data, 3);
-    console.log(data, result)
-    socket.emit("readRows", result);
+    Mutex.runExclusive( async () => {
+      logger.info({"message":"Tablet Server 1 received query readRows", "rowKeys": data});
+      result = await db.ReadRows(data, 3);
+      console.log(data, result)
+      socket.emit("readRows", result);
+    })
   });
   socket.on("deleteCells", async function (data) {
-    logger.info({"message":"Tablet Server 1 received query deleteCells", "rowKey": data["rowKey"]});
-    dataObject = deleteCells(data["cols"]);
-    result = await db.DeleteCells(data["rowKey"],dataObject, 3);
-    tablet = await db.ReadRows(data["rowKey"], 3);
-    socket.emit("deleteCells", result);
+    Mutex.runExclusive( async () => {
+      logger.info({"message":"Tablet Server 1 received query deleteCells", "rowKey": data["rowKey"]});
+      dataObject = deleteCells(data["cols"]);
+      result = await db.DeleteCells(data["rowKey"],dataObject, 3);
+      tablet = await db.ReadRows(data["rowKey"], 3);
+      socket.emit("deleteCells", result);
 
-    rowKey.push(data["rowKey"]);
-    updatedData.push(tablet);
-
+      rowKey.push(data["rowKey"]);
+      updatedData.push(tablet);
+    })
   });
   socket.on("setCells", async function (data) {
-    logger.info({"message":"Tablet Server 1 received query setCells", "data": data});
-    dataObject = updateInsert(data["cols"], data["data"]);
-    console.log(dataObject)
-    result = await db.set(data["rowKey"],dataObject, 3);
-    tablet = await db.ReadRows(data["rowKey"], 3);
-    socket.emit("setCells", result);
+    Mutex.runExclusive( async () => {
+      logger.info({"message":"Tablet Server 1 received query setCells", "data": data});
+      dataObject = updateInsert(data["cols"], data["data"]);
+      console.log(dataObject)
+      result = await db.set(data["rowKey"],dataObject, 3);
+      tablet = await db.ReadRows(data["rowKey"], 3);
+      socket.emit("setCells", result);
 
-    rowKey.push(data["rowKey"]);
-    updatedData.push(tablet);
+      rowKey.push(data["rowKey"]);
+      updatedData.push(tablet);
+    })
   });
 
   setInterval(async () => {
