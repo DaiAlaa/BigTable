@@ -95,7 +95,7 @@ io.on('connection', async function (socket) {
         await DivideData();
         socket.emit('tablet-data-2', {data:[dataTablet2,dataTablet3], metadata: metadataTabletServer2});
         socket.emit('tablet-data-1', {data:dataTablet1, metadata: metadataTabletServer1 });
-        socket.emit('meta-data', metadataClient);
+        io.emit('meta-data', metadataClient);
     
     })
     socket.on('deleteRows', async function(data){
