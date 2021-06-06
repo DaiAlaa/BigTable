@@ -63,38 +63,48 @@ var ioserver = require("socket.io")(server);
 ioserver.on("connection", function (socket) {
     console.log("Client connected".info)
   socket.on("addRow", async function (data) {
-    console.log(data)
-    dataObject = updateInsert(data["cols"], data["data"]);
-    result = await db.AddRow({url:data["rowKey"], ...dataObject}, Tablet(data["rowKey"]));
-    socket.emit("addRow", result);
-    socket1.emit("addRow", {url:data["rowKey"], ...dataObject});
+    Mutex.runExclusive( async () => {
+      console.log(data)
+      dataObject = updateInsert(data["cols"], data["data"]);
+      result = await db.AddRow({url:data["rowKey"], ...dataObject}, Tablet(data["rowKey"]));
+      socket.emit("addRow", result);
+      socket1.emit("addRow", {url:data["rowKey"], ...dataObject});
+    })
   });
   socket.on("deleteRows", async function (data) {
-    console.log(data)
-    result = await db.DeleteRow(data,Tablet(data[0]));
-    socket.emit("deleteRows", result);
-    socket1.emit("deleteRows", data);
+    Mutex.runExclusive( async () => {
+      console.log(data)
+      result = await db.DeleteRow(data,Tablet(data[0]));
+      socket.emit("deleteRows", result);
+      socket1.emit("deleteRows", data);
+    })
   });
   socket.on("readRows", async function (data) {
-    console.log(data)
-    result = await db.ReadRows(data, Tablet(data[0]));
-    console.log(data, result)
-    socket.emit("readRows", result);
+    Mutex.runExclusive( async () => {
+      console.log(data)
+      result = await db.ReadRows(data, Tablet(data[0]));
+      console.log(data, result)
+      socket.emit("readRows", result);
+    })
   });
   socket.on("deleteCells", async function (data) {
-    console.log(data)
-    arr.push(data["rowKey"]);
-    dataObject = deleteCells(data["cols"]);
-    result = await db.DeleteCells(data["rowKey"],dataObject, Tablet(data["rowKey"]));
-    socket.emit("deleteCells", result);
+    Mutex.runExclusive( async () => {
+      console.log(data)
+      arr.push(data["rowKey"]);
+      dataObject = deleteCells(data["cols"]);
+      result = await db.DeleteCells(data["rowKey"],dataObject, Tablet(data["rowKey"]));
+      socket.emit("deleteCells", result);
+    })
   });
   socket.on("setCells", async function (data) {
-    console.log(data)
-    arr.push(data["rowKey"]);
-    dataObject = updateInsert(data["cols"], data["data"]);
-    console.log(dataObject)
-    result = await db.set(data["rowKey"],dataObject, Tablet(data["rowKey"]));
-    socket.emit("setCells", result);
+    Mutex.runExclusive( async () => {
+      console.log(data)
+      arr.push(data["rowKey"]);
+      dataObject = updateInsert(data["cols"], data["data"]);
+      console.log(dataObject)
+      result = await db.set(data["rowKey"],dataObject, Tablet(data["rowKey"]));
+      socket.emit("setCells", result);
+    })
   });
   setInterval(async () => {
     /////////////////////////////////////////

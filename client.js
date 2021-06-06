@@ -75,7 +75,6 @@ function readRows(rowKeys) {
   }
 }
 
-// TODO handle rowKey out of all ranges (when adding & when removing)
 function TabletServer(rowKey) {
   data = metaData.find((ts) => rowKey >= ts.start && rowKey <= ts.end);
   if(data == undefined){
@@ -102,7 +101,6 @@ function TabletServerURL(rowKey) {
   return url;
 }
 
-// TODO set listeners
 function send(event, data, socket) {
   if (socket.connected) {
     socket.emit(event, data);

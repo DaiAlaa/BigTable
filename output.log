@@ -37,3 +37,18 @@
 {"message":"hi","Port":8081,"level":"info"}
 {"message":"hi","Port":8081,"level":"info"}
 {"message":"lhjh","Port":8081,"level":"info"}
+{"message":"Client: Received Metadata","SocketId":"v4K5m1yPbssn_Xc9AAAH","level":"info"}
+{"message":"Client: Received ","SocketId":"v4K5m1yPbssn_Xc9AAAH","level":"info"}
+{"message":"Client: Received [object Object]","SocketId":"v4K5m1yPbssn_Xc9AAAH","level":"info"}
+{"message":"Client: Received [object Object]","SocketId":"v4K5m1yPbssn_Xc9AAAH","level":"info"}
+{"message":"Client: Received [object Object],[object Object]","SocketId":"v4K5m1yPbssn_Xc9AAAH","level":"info"}
+{"message":"Client: Received [object Object],[object Object]","SocketId":"v4K5m1yPbssn_Xc9AAAH","level":"info"}
+{"message":"Client: Received [object Object],[object Object]","SocketId":"v4K5m1yPbssn_Xc9AAAH","level":"info"}
+{"message":"Client: Received Metadata","SocketId":"rK6uxsYUVthj30VAAAAH","level":"info"}
+{"message":"Client: Received null","SocketId":"rK6uxsYUVthj30VAAAAH","level":"info"}
+{"message":"Client: Received [object Object]","SocketId":"rK6uxsYUVthj30VAAAAH","level":"info"}
+{"message":"Client: Received [object Object]","SocketId":"rK6uxsYUVthj30VAAAAH","level":"info"}
+{"message":"Client: Received [object Object]","SocketId":"rK6uxsYUVthj30VAAAAH","level":"info"}
+{"message":"Client: Received [object Object]","SocketId":"rK6uxsYUVthj30VAAAAH","level":"info"}
+{"message":"Client: Received [object Object]","SocketId":"rK6uxsYUVthj30VAAAAH","level":"info"}
+{"message":"Client: Received [object Object]","SocketId":"rK6uxsYUVthj30VAAAAH","level":"info"}
