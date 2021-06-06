@@ -77,7 +77,8 @@ ioserver.on("connection", function (socket) {
   });
   socket.on("readRows", async function (data) {
     console.log(data)
-    result = db.ReadRows(data, Tablet(data[0]));
+    result = await db.ReadRows(data, Tablet(data[0]));
+    console.log(data, result)
     socket.emit("readRows", result);
   });
   socket.on("deleteCells", async function (data) {
@@ -98,11 +99,12 @@ ioserver.on("connection", function (socket) {
   setInterval(async () => {
     /////////////////////////////////////////
     result = await CourseA.find({ url: arr }, { _id: 0 });
-    result2 = await CourseB.find({ url: arr }, { _id: 0 });
+    result2 = await CourseB.find({ url: arr2 }, { _id: 0 });
     /////////////////////////////////////////
-    arr = new Set(arr);
-    socket1.emit("update", [arr, result]);
+    arr = new Set(arr.concat(arr2));
+    socket1.emit("update", [arr, result.concat(result2)]);
     arr = [];
+    arr2 = [];
   }, 1000 * 1 * 60);
 });
 function Tablet(rowKey) {

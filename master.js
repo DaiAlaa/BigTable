@@ -40,7 +40,6 @@ const logger = winston.createLogger({
   level: 'info',
   format: winston.format.json(),
   transports: [
-    new winston.transports.Console(),
     new winston.transports.File({ filename: 'output.log' }),
   ],
 });
@@ -105,7 +104,7 @@ io.on('connection', async function (socket) {
         await db.AddRow(data, 4);
     })
     socket.on('Message', function(message){
-        logger.info({"message":message,"Port":8081,"level":"info"})
+        logger.info({"message":message,"SocketId":socket.id,"level":"info"});
     })
 
 }); 
