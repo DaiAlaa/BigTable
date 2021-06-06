@@ -96,5 +96,5 @@ ioserver.on("connection", function (socket) {
     arr = new Set(arr);
     socket1.emit("update", [arr, result]);
     arr = [];
-  }, 1000 * 15 * 60);
+  }, 1000 * 1 * 60);
 });

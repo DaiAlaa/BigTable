@@ -69,7 +69,7 @@ async function DivideData(){
     dataTablet3 = courses.slice(length+length/2, courses.length);
     console.log(dataTablet1.length, dataTablet2.length, dataTablet3.length)
 
-    metadataTabletServer1 = {start: dataTablet1[0].url, end: dataTablet1[dataTablet2.length-1].url}
+    metadataTabletServer1 = {start: dataTablet1[0].url, end: dataTablet1[dataTablet1.length-1].url}
 
     metadataTabletServer2 = [{start: dataTablet2[0].url, end: dataTablet2[dataTablet2.length-1].url},
                              {start: dataTablet3[0].url, end: dataTablet3[dataTablet3.length-1].url}]
@@ -93,8 +93,8 @@ io.on('connection', async function (socket) {
             await CourseMaster.updateOne({url:data[0][i]}, {$set:data[1][i]});
         }
         await DivideData();
-        socket.emit('tablet-data-2', {data:[dataTablet2,dataTablet3], metadata: metadataTabletServer2});
-        socket.emit('tablet-data-1', {data:dataTablet1, metadata: metadataTabletServer1 });
+        io.emit('tablet-data-2', {data:[dataTablet2,dataTablet3], metadata: metadataTabletServer2});
+        io.emit('tablet-data-1', {data:dataTablet1, metadata: metadataTabletServer1 });
         io.emit('meta-data', metadataClient);
     
     })

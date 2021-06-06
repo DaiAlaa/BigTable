@@ -46,7 +46,7 @@ socket1.on("tablet-data-2", async function (data) {
   await CourseB.deleteMany({});
   await CourseB.insertMany(data.data[1]);
   metadata=data.metadata
-  console.log(metadata)
+  console.log("meta recieved", metadata)
 });
 arr = [];
 function updateInsert(cols, data) {
@@ -103,7 +103,7 @@ ioserver.on("connection", function (socket) {
     arr = new Set(arr);
     socket1.emit("update", [arr, result]);
     arr = [];
-  }, 1000 * 15 * 60);
+  }, 1000 * 1 * 60);
 });
 function Tablet(rowKey) {
   index = metadata.findIndex((t) => rowKey >= t.start && rowKey <= t.end);
