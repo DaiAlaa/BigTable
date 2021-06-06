@@ -1,4 +1,4 @@
-const MASTER_URL = "http://localhost:4000";
+const MASTER_URL = "https://master123321kareem3m.loca.lt";
 var colors = require("colors");
 colors.setTheme({
   input: "grey",
@@ -66,8 +66,8 @@ async function DivideData(){
 
     metadataTabletServer2 = [{start: dataTablet2[0].url, end: dataTablet2[dataTablet2.length-1].url},
                              {start: dataTablet3[0].url, end: dataTablet3[dataTablet3.length-1].url}]
-    metadataClient = [{start: dataTablet2[0].url,end: dataTablet3[dataTablet3.length-1].url , url : "http://localhost:5000"}, 
-                      {start: dataTablet1[0].url, end: dataTablet1[dataTablet1.length-1].url, url : "http://localhost:3000"}]
+    metadataClient = [{start: dataTablet2[0].url,end: dataTablet3[dataTablet3.length-1].url , url : "https://ts2777kareem3m.loca.lt"}, 
+                      {start: dataTablet1[0].url, end: dataTablet1[dataTablet1.length-1].url, url : "https://ts1777kareem3m.loca.lt"}]
 
 
 

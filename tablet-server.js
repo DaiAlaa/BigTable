@@ -1,4 +1,4 @@
-const MASTER_URL = "http://localhost:4000";
+const MASTER_URL = "https://master123321kareem3m.loca.lt";
 var colors = require("colors");
 var logger = require('./logger.js');
 
@@ -14,7 +14,7 @@ colors.setTheme({
     error: "red",
   });
   
-require("localtunnel")({ port: 3000, subdomain: "ts1kareem3m" }).then(() => {
+require("localtunnel")({ port: 3000, subdomain: "ts1777kareem3m" }).then(() => {
     console.log("Tablet Server Online".info);
 });
 
