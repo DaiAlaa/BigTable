@@ -1,10 +1,12 @@
 const MASTER_URL = "http://localhost:4000";
 var colors = require("colors");
+var logger = require('./logger.js');
+
 colors.setTheme({
     input: "grey",
     verbose: ["cyan", "bold"],
     prompt: "grey",
-    info: ["green", "bold"],
+    info: [" blue", "bold"],
     data: "grey",
     help: "cyan",
     warn: "yellow",
@@ -13,7 +15,7 @@ colors.setTheme({
   });
   
 require("localtunnel")({ port: 5000, subdomain: "ts2kareem3m" }).then(() => {
-    console.log("Tablet Server Online".info);
+    console.log("Tablet Server Online");
 });
 
 require("dotenv/config");
@@ -36,9 +38,11 @@ var socket1 = io.connect(MASTER_URL, {
 });
 
 socket1.on("connect", function () {
+  logger.info({"message":"Tablet Server 2 connected to master"});
   console.log("connected to Master");
 });
-metadata=[]
+rowKey = [];
+updatedData = [];
 ///////////////////
 socket1.on("tablet-data-2", async function (data) {
   await CourseA.deleteMany({});
@@ -46,6 +50,7 @@ socket1.on("tablet-data-2", async function (data) {
   await CourseB.deleteMany({});
   await CourseB.insertMany(data.data[1]);
   metadata=data.metadata
+  logger.info({"message":"Tablet Server 2 recieved metadata"});
   console.log("meta recieved", metadata)
 });
 arr = [];
@@ -61,51 +66,57 @@ function deleteCells(cols){
 }
 var ioserver = require("socket.io")(server);
 ioserver.on("connection", function (socket) {
-    console.log("Client connected".info)
-  socket.on("addRow", async function (data) {
-    console.log(data)
-    dataObject = updateInsert(data["cols"], data["data"]);
-    result = await db.AddRow({url:data["rowKey"], ...dataObject}, Tablet(data["rowKey"]));
-    socket.emit("addRow", result);
-    socket1.emit("addRow", {url:data["rowKey"], ...dataObject});
+    console.log("Client connected")
+    socket.on("addRow", async function (data) {
+      logger.info({"message":"Tablet Server 2 received query addRow", "rowKey": data["rowKey"]});
+      dataObject = updateInsert(data["cols"], data["data"]);
+      result = await db.AddRow({url:data["rowKey"], ...dataObject}, Tablet(data["rowKey"]));
+      socket.emit("addRow", result);
+      socket1.emit("addRow", {url:data["rowKey"], ...dataObject});
   });
   socket.on("deleteRows", async function (data) {
-    console.log(data)
+    logger.info({"message":"Tablet Server 2 received query deleteRows","rowKey": data["rowKey"]});
     result = await db.DeleteRow(data,Tablet(data[0]));
     socket.emit("deleteRows", result);
     socket1.emit("deleteRows", data);
   });
   socket.on("readRows", async function (data) {
-    console.log(data)
+    logger.info({"message":"Tablet Server 2 received query readRows", "rowKeys": data});
     result = await db.ReadRows(data, Tablet(data[0]));
     console.log(data, result)
     socket.emit("readRows", result);
   });
   socket.on("deleteCells", async function (data) {
-    console.log(data)
-    arr.push(data["rowKey"]);
+    logger.info({"message":"Tablet Server 2 received query deleteCells", "rowKey": data["rowKey"]});
+
     dataObject = deleteCells(data["cols"]);
     result = await db.DeleteCells(data["rowKey"],dataObject, Tablet(data["rowKey"]));
     socket.emit("deleteCells", result);
+
+    tablet = await db.ReadRows(data["rowKey"],  Tablet(data["rowKey"]));
+    rowKey.push(data["rowKey"]);
+    updatedData.push(tablet);
+
   });
   socket.on("setCells", async function (data) {
-    console.log(data)
-    arr.push(data["rowKey"]);
+    logger.info({"message":"Tablet Server 2 received query setCells", "data": data});
     dataObject = updateInsert(data["cols"], data["data"]);
-    console.log(dataObject)
     result = await db.set(data["rowKey"],dataObject, Tablet(data["rowKey"]));
     socket.emit("setCells", result);
+
+    tablet = await db.ReadRows(data["rowKey"],  Tablet(data["rowKey"]));
+    rowKey.push(data["rowKey"]);
+    updatedData.push(tablet);
+
   });
   setInterval(async () => {
-    /////////////////////////////////////////
-    result = await CourseA.find({ url: arr }, { _id: 0 });
-    result2 = await CourseB.find({ url: arr2 }, { _id: 0 });
-    /////////////////////////////////////////
-    arr = new Set(arr.concat(arr2));
-    socket1.emit("update", [arr, result.concat(result2)]);
-    arr = [];
-    arr2 = [];
+    socket1.emit("update", [rowKey, updatedData]);
+    logger.info({"message":"Tablet Server 2 send updated data to master" });
+    rowKey = [];
+    updatedData = [];
   }, 1000 * 1 * 60);
+
+
 });
 function Tablet(rowKey) {
   index = metadata.findIndex((t) => rowKey >= t.start && rowKey <= t.end);

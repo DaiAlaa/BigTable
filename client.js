@@ -1,5 +1,6 @@
 var io = require("socket.io-client");
 var colors = require("colors");
+var logger = require('./logger.js');
 
 colors.setTheme({
   input: "grey",
@@ -20,13 +21,12 @@ var master = io.connect(MASTER_URL);
 
 master.on("connect", () => {
   console.log("Connected to master".info);
-  master.emit('Message', 'Client: ' + 'Connected to Master')
+  logger.info({"message":"Client: connected to master"});
   master.on("meta-data", (newMetaData) => {
     metaData = newMetaData;
     console.log("Received Metadata".info, metaData);
-    master.emit('Message', 'Client: ' + 'Received Metadata')
+    logger.info({"message":"Client: receive new metadata"});
   });
-  
 });
 
 
@@ -106,39 +106,42 @@ function TabletServerURL(rowKey) {
 function send(event, data, socket) {
   if (socket.connected) {
     socket.emit(event, data);
+    logger.info({"message":"Client: " + socket.id +" send Query "+ event, "rowKey": data});
   } else {
     socket.on("connect", () => {
       setResponseListeners(socket)
       socket.emit(event, data);
+      logger.info({"message":"Client: " + socket.id +" send Query "+ event, "request": data});
     });
   }
 }
 
 function setResponseListeners(socket) {
   socket.on("setCells", (response) => {
-    console.log("Response received for setCells");
-    console.log(response);
-    // master.emit('Message', 'Client: Received ' + response)
-  });
+      console.log("Response received for setCells");
+      console.log(response);
+      logger.info({"message":"Client: " + socket.id +" receive response for setCells"});
+    });
   socket.on("deleteCells", (response) => {
-    console.log("Response received for deleteCells");
-    console.log(response);
-    master.emit('Message', 'Client: Received ' + response)
+      console.log("Response received for deleteCells");
+      console.log(response);
+      logger.info({"message":"Client: " + socket.id +" receive response for deleteCells"});
   });
   socket.on("addRow", (response) => {
-    console.log("Response received for addRow");
-    console.log(response);
-    master.emit('Message', 'Client: Received ' + response)
+      console.log("Response received for addRow");
+      console.log(response);
+      logger.info({"message":"Client: " + socket.id +" receive response for addRow"});
+
   });
   socket.on("deleteRows", (response) => {
-    console.log("Response received for deleteRows");
-    console.log(response);
-    master.emit('Message', 'Client: Received ' + response)
+      console.log("Response received for deleteRows");
+      console.log(response);
+      logger.info({"message":"Client: " + socket.id +" receive response for deleteRows"});
   });
   socket.on("readRows", (response) => {
-    console.log("Response received for readRows");
-    console.log(response);
-    master.emit('Message', 'Client: Received ' + response)
+      console.log("Response received for readRows");
+      console.log(response);
+      logger.info({"message":"Client: " + socket.id +" receive response for readRows", "response": response});
   });
   
 }

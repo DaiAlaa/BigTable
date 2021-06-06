@@ -17,7 +17,7 @@ async function DeleteRow(url, num) {
       else if(num == 3) return await Course.insertMany(data);
       else return await CourseMaster.insertMany(data);
 
-    } catch (e) {}
+    } catch (e) { return "invalid row key";}
   }
   async function ReadRows(url, num) {
     if (num == 1) return await CourseA.find({ url: url }, {}, {});

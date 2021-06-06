@@ -21,6 +21,7 @@ db = require('./data-base/data-base-operations')
 const winston = require('winston');
 // const connection = require('./master/data-base-connection');
 var express = require('express');
+logger = require('./logger.js');
 const app = express();
 // connection(app);
 const { CourseMaster: CourseMaster, Metadata: Metadata }= require('./data-base/data-base-schema');
@@ -36,13 +37,6 @@ var server = app.listen(port, function () {
    console.log("Example app listening at http://%s:%s", host, port)
 })
 
-const logger = winston.createLogger({
-  level: 'info',
-  format: winston.format.json(),
-  transports: [
-    new winston.transports.File({ filename: 'output.log' }),
-  ],
-});
 
 
 metadataTabletServer1 = {}
@@ -81,21 +75,18 @@ async function DivideData(){
 
 
 var io = require('socket.io')(server);
+logger.info({"message":"Master connected"});
+
 io.on('connection', async function (socket) {
     await DivideData();
     socket.emit('tablet-data-2', {data:[dataTablet2,dataTablet3], metadata: metadataTabletServer2});
     socket.emit('tablet-data-1', {data:dataTablet1, metadata: metadataTabletServer1 });
     socket.emit('meta-data', metadataClient);
-    
+
     socket.on('update', async function(data){
         for (let i=0;i<data[0].length;i++){
             await CourseMaster.updateOne({url:data[0][i]}, {$set:data[1][i]});
         }
-        await DivideData();
-        io.emit('tablet-data-2', {data:[dataTablet2,dataTablet3], metadata: metadataTabletServer2});
-        io.emit('tablet-data-1', {data:dataTablet1, metadata: metadataTabletServer1 });
-        io.emit('meta-data', metadataClient);
-    
     })
     socket.on('deleteRows', async function(data){
         await db.DeleteRow(data, 4);
@@ -103,9 +94,13 @@ io.on('connection', async function (socket) {
     socket.on('addRow', async function(data){
         await db.AddRow(data, 4);
     })
-    socket.on('Message', function(message){
-        logger.info({"message":message,"SocketId":socket.id,"level":"info"});
-    })
-
+    setInterval(async () => {
+        logger.info({"message":"master load balancing"});
+        await DivideData();
+        io.emit('tablet-data-2', {data:[dataTablet2,dataTablet3], metadata: metadataTabletServer2});
+        io.emit('tablet-data-1', {data:dataTablet1, metadata: metadataTabletServer1 });
+        io.emit('meta-data', metadataClient);
+    }, 1000 * 15 * 60);
+    
 }); 
 
