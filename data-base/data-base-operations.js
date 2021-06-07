@@ -25,6 +25,12 @@ async function DeleteRow(url, num) {
     else if(num == 3)  return await Course.find({ url: url }, {}, {});
     else return await CourseMaster.find({ url: url }, {}, {});
 }
+async function findRows(url, num) {
+  if (num == 1) return await CourseA.find({ url: url }, {_id:0}, {});
+  else if(num == 2)  return await CourseB.find({ url: url }, {_id:0}, {});
+  else if(num == 3)  return await Course.find({ url: url }, {_id:0}, {});
+  else return await CourseMaster.find({ url: url }, {_id:0},{} );
+}
   async function set(url, data, num) {
     console.log(url, data, num);
     if (num == 1) return await CourseA.updateMany({ url: url }, { $set: data });
@@ -44,4 +50,4 @@ async function DeleteRow(url, num) {
 
   
  
- module.exports= {set, DeleteCells, DeleteRow, ReadRows, AddRow}
+ module.exports= {set, DeleteCells, DeleteRow, ReadRows, AddRow, findRows}

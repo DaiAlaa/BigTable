@@ -12,9 +12,6 @@ colors.setTheme({
   error: "red",
 });
 
-require("localtunnel")({ port: 4000, subdomain: "master123321kareem3m" }).then(() => {
-    console.log("Master Online".info);
-  });
 require('dotenv/config'); 
 db = require('./data-base/data-base-operations')
 
@@ -51,7 +48,7 @@ async function DivideData(){
     courses = await CourseMaster.find({},[], {
         sort: {
         url: 1 
-        },
+        }, _id : 0
     }, function(error, result) {
         return result
     });
@@ -66,8 +63,8 @@ async function DivideData(){
 
     metadataTabletServer2 = [{start: dataTablet2[0].url, end: dataTablet2[dataTablet2.length-1].url},
                              {start: dataTablet3[0].url, end: dataTablet3[dataTablet3.length-1].url}]
-    metadataClient = [{start: dataTablet2[0].url,end: dataTablet3[dataTablet3.length-1].url , url : "http://localhost:5000"}, 
-                      {start: dataTablet1[0].url, end: dataTablet1[dataTablet1.length-1].url, url : "http://localhost:3000"}]
+    metadataClient = [{start: dataTablet2[0].url,end: dataTablet3[dataTablet3.length-1].url , url : "https://dina-tablet-server2.herokuapp.com/"}, 
+                      {start: dataTablet1[0].url, end: dataTablet1[dataTablet1.length-1].url, url : "https://dina-tabletserver1.herokuapp.com/"}]
 
 
 
@@ -84,8 +81,9 @@ io.on('connection', async function (socket) {
     socket.emit('meta-data', metadataClient);
 
     socket.on('update', async function(data){
+        console.log(data[1][0]);
         for (let i=0;i<data[0].length;i++){
-            await CourseMaster.updateOne({url:data[0][i]}, {$set:data[1][i]});
+            await CourseMaster.replaceOne({url:data[0][i]}, data[1][i], { upsert: true });
         }
     })
     socket.on('deleteRows', async function(data){

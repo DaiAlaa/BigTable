@@ -7,7 +7,6 @@
     "async-mutex": "^0.3.1",
     "dotenv-config": "^0.1.1",
     "express": "^4.17.1",
-    "localtunnel": "^2.0.1",
     "mongoose": "^5.12.11",
     "nodemon": "^2.0.7",
     "socket.io": "^4.1.2",
@@ -16,7 +15,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node master.js"
   },
   "author": "",
   "license": "ISC"

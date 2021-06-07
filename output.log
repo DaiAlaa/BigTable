@@ -1,3 +1,970 @@
+
 info: Master connected
 info: Tablet Server 1 recieved metadata
 info: Tablet Server 2 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Master connected
+info: Master connected
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Master connected
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/1-hour-golang/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/frontend/"}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/cooking-indomie-tutorial/"}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/i-love-coding-tutorial/"}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/i-love-coding-tutorial/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/"]}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/","https://www.udemy.com/frontend/"]}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/"]}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/"]}
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/","https://www.udemy.com/frontend/"]}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/","https://www.udemy.com/frontend/"]}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/frontend/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query deleteRows
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query deleteRows
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 connected to master
+info: Tablet Server 1 recieved metadata
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/nodejs-tutorial/"}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/we-love-coding-tutorial/"}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/introduction-to-c++/"}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/ubuntu-crash-course/"}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/postgres-sql-1-hour-course/"}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/introduction-to-c++/"]}
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/postgres-sql-1-hour-course/"]}
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/introduction-to-c++/"]}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/introduction-to-c++/"}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/introduction-to-c++/"]}
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/introduction-to-c++/"]}
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/postgres-sql-1-hour-course/"]}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/postgres-sql-1-hour-course/"}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/postgres-sql-1-hour-course/"]}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/introduction-to-c++/","cols":["course_title","is_paid","price"],"data":["C++",false,500]}}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/introduction-to-c++/"}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/introduction-to-c++/"}
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/introduction-to-c++/","cols":["course_title","is_paid","price"],"data":["C++",false,500]}}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/introduction-to-c++/","cols":["course_title","is_paid","price"],"data":["C++",false,500]}}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/introduction-to-c++/","cols":["course_title","is_paid","price"],"data":["C++",false,500]}}
+info: Tablet Server 2 received query deleteCells {"rowKey":"https://www.udemy.com/postgres-sql-1-hour-course/"}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 received query deleteRows
+info: Tablet Server 2 received query deleteRows
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 connected to master
+info: Tablet Server 2 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 2 received query readRows {"rowKeys":["nkdsjdskjdjd"]}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/we-love-coding-tutorial/"}
+info: Tablet Server 1 connected to master
+info: Tablet Server 1 received query readRows {"rowKeys":["b"]}
+info: Tablet Server 1 recieved metadata
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/i-love-coding-tutorial/"}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/1-hour-golang/"}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/frontend/"}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/cooking-indomie-tutorial/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/graphic-design-tutorial/"}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/graphic-design-tutorial/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/graphic-design-tutorial/"}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/graphic-design-tutorial/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Client: receive new metadata
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/"]}
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/","https://www.udemy.com/frontend/"]}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/resume-create/"}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/postgres-sql-1-hour-course/"}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/postgres-sql-1-hour-course/"}
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/introduction-to-c++/"]}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/postgres-sql-1-hour-course/"}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/postgres-sql-1-hour-course/"}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/resume-create/"}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/resume-create/"}
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/postgres-sql-1-hour-course/"]}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/postgres-sql-1-hour-course/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/postgres-sql-1-hour-course/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/postgres-sql-1-hour-course/"]}
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/","https://www.udemy.com/frontend/"]}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/introduction-to-c++/"]}
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/"]}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/introduction-to-c++/"]}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/introduction-to-c++/","cols":["course_title","is_paid","price"],"data":["C++",false,500]}}
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/introduction-to-c++/"}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/introduction-to-c++/"]}
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/introduction-to-c++/","cols":["course_title","is_paid","price"],"data":["C++",false,500]}}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 received query deleteCells {"rowKey":"https://www.udemy.com/postgres-sql-1-hour-course/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/frontend/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 received query deleteRows
+info: Tablet Server 1 received query deleteRows
+info: Tablet Server 2 received query deleteRows
+info: Tablet Server 1 received query deleteRows
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/"]}
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/introduction-to-c++/"]}
+info: Tablet Server 2 received query readRows {"rowKeys":["https://www.udemy.com/postgres-sql-1-hour-course/"]}
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/","https://www.udemy.com/frontend/"]}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: master load balancing
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 send updated data to master
+info: master load balancing
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: master load balancing
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: master load balancing
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: master load balancing
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: master load balancing
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: master load balancing
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: master load balancing
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: master load balancing
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: master load balancing
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Master connected
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 recieved metadata
+info: Tablet Server 2 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Master connected
+info: Tablet Server 2 recieved metadata
+info: Client: receive new metadata
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query readRows {"rowKeys":["https://www.udemy.com/create-simple-mongoDB-app/","https://www.udemy.com/frontend/"]}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 connected to master
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query addRow {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 recieved metadata
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 recieved metadata
+info: Client: receive new metadata
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Master connected
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Master connected
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Master connected
+info: Tablet Server 2 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/introduction-to-c++/","cols":["course_title","is_paid","price"],"data":["C++",false,500]}}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Master connected
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Master connected
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 connected to master
+info: Tablet Server 2 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 connected to master
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Master connected
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 recieved metadata
+info: Master connected
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/introduction-to-c++/","cols":["course_title","is_paid","price"],"data":["C++",false,500]}}
+info: Tablet Server 2 connected to master
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 connected to master
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Master connected
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 recieved metadata
+info: Tablet Server 2 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Master connected
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Master connected
+info: Tablet Server 2 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Master connected
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 2 recieved metadata
+info: Client: receive new metadata
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Master connected
+info: Tablet Server 1 recieved metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 recieved metadata
+info: Master connected
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 connected to master
+info: Tablet Server 1 recieved metadata
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Master connected
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Client: receive new metadata
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 connected to master
+info: Tablet Server 1 recieved metadata
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 recieved metadata
+info: Tablet Server 1 recieved metadata
+info: Tablet Server 2 received query addRow {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 1 received query deleteCells {"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/"}
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Client: receive new metadata
+info: Tablet Server 2 received query setCells {"data":{"rowKey":"https://www.udemy.com/create-simple-mongoDB-app/","cols":["course_title","is_paid","price"],"data":["mongodb app",true,100]}}
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 2 send updated data to master
+info: Tablet Server 1 send updated data to master

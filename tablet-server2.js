@@ -1,6 +1,7 @@
 const MASTER_URL = "http://localhost:4000";
 var colors = require("colors");
-
+m = require('async-mutex');
+const mutex = new m.Mutex();
 colors.setTheme({
     input: "grey",
     verbose: ["cyan", "bold"],
@@ -13,9 +14,7 @@ colors.setTheme({
     error: "red",
   });
   
-require("localtunnel")({ port: 5000, subdomain: "ts2777kareem3m" }).then(() => {
-    console.log("Tablet Server Online");
-});
+
 
 require("dotenv/config");
 const Course = require('./data-base/data-base-schema');
@@ -26,7 +25,7 @@ const app = express();
 db = require('./data-base/data-base-operations')
 
 var port = "5000";
-var server = app.listen(port, function () {
+var server = app.listen(5000, function () {
   var host = "localhost";
   console.log("Example app listening at http://%s:%s", host, port);
 });
@@ -40,20 +39,19 @@ socket1.on("connect", function () {
   socket1.emit("message", {"message":"Tablet Server 2 connected to master"});
   console.log("connected to Master");
 });
-socket1.on('message', async function(message){
-  socket1.emit("message", message);
-})
+metadata=[];
+
 rowKey = [];
 updatedData = [];
 ///////////////////
 socket1.on("tablet-data-2", async function (data) {
+  metadata=data.metadata
+  console.log(metadata)
+  socket1.emit("message", {"message":"Tablet Server 2 recieved metadata"});
   await CourseA.deleteMany({});
   await CourseA.insertMany(data.data[0]);
   await CourseB.deleteMany({});
   await CourseB.insertMany(data.data[1]);
-  metadata=data.metadata
-  socket1.emit("message", {"message":"Tablet Server 2 recieved metadata"});
-  console.log("meta recieved", metadata)
 });
 arr = [];
 function updateInsert(cols, data) {
@@ -77,7 +75,7 @@ ioserver.on("connection", function (socket) {
       socket1.emit("addRow", {url:data["rowKey"], ...dataObject});
   });
   socket.on("deleteRows", async function (data) {
-    Mutex.runExclusive( async () => {
+    mutex.runExclusive( async () => {
       socket1.emit("message", {"message":"Tablet Server 2 received query deleteRows","rowKey": data["rowKey"]});
       result = await db.DeleteRow(data,Tablet(data[0]));
       socket.emit("deleteRows", result);
@@ -85,7 +83,7 @@ ioserver.on("connection", function (socket) {
     })
   });
   socket.on("readRows", async function (data) {
-    Mutex.runExclusive( async () => {
+    mutex.runExclusive( async () => {
       socket1.emit("message", {"message":"Tablet Server 2 received query readRows", "rowKeys": data});
       result = await db.ReadRows(data, Tablet(data[0]));
       console.log(data, result)
@@ -93,7 +91,7 @@ ioserver.on("connection", function (socket) {
     })
   });
   socket.on("deleteCells", async function (data) {
-    Mutex.runExclusive( async () => {
+    mutex.runExclusive( async () => {
 
       socket1.emit("message", {"message":"Tablet Server 2 received query deleteCells", "rowKey": data["rowKey"]});
 
@@ -101,20 +99,20 @@ ioserver.on("connection", function (socket) {
       result = await db.DeleteCells(data["rowKey"],dataObject, Tablet(data["rowKey"]));
       socket.emit("deleteCells", result);
 
-      tablet = await db.ReadRows(data["rowKey"],  Tablet(data["rowKey"]));
+      tablet = await db.findRows(data["rowKey"],  Tablet(data["rowKey"]));
       rowKey.push(data["rowKey"]);
-      updatedData.push(tablet);
+      updatedData.push(tablet[0]);
     })
   });
   socket.on("setCells", async function (data) {
-    Mutex.runExclusive( async () => {
+    mutex.runExclusive( async () => {
       socket1.emit("message", {"message":"Tablet Server 2 received query setCells", "data": data});
       dataObject = updateInsert(data["cols"], data["data"]);
       result = await db.set(data["rowKey"],dataObject, Tablet(data["rowKey"]));
       socket.emit("setCells", result);
-      tablet = await db.ReadRows(data["rowKey"],  Tablet(data["rowKey"]));
+      tablet = await db.findRows(data["rowKey"],  Tablet(data["rowKey"]));
       rowKey.push(data["rowKey"]);
-      updatedData.push(tablet);
+      updatedData.push(tablet[0]);
     })
   });
   setInterval(async () => {

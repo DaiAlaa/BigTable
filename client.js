@@ -13,7 +13,7 @@ colors.setTheme({
   error: "red",
 });
 
-const MASTER_URL ="http://localhost:4000";
+const MASTER_URL ="https://dina-master.herokuapp.com/";
 
 var metaData = null;
 var master = io.connect(MASTER_URL);
