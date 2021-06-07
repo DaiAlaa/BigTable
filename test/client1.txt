@@ -1,0 +1,38 @@
+client.addRow("https://www.udemy.com/create-simple-mongoDB-app/",["course_title",
+"is_paid","price"]
+,["create-simple-mongoDB-app", true, 3000]);
+
+client.addRow("https://www.udemy.com/graphic-design-tutorial/",["course_title",
+"is_paid","price"]
+,["graphic-design-tutorial", true, 3000]);
+
+client.addRow("https://www.udemy.com/resume-create/",["course_title","is_paid","price"],["resume-create", true, 3000]);
+
+client.addRow("https://www.udemy.com/a-intro-to-java-programming/",["course_title",
+"is_paid","price"]
+,["a-intro-to-java-programming", true, 3000]);
+
+client.addRow("https://www.udemy.com/postgres-sql-1-hour-course/",["course_title",
+"is_paid","price"]
+,["postgres-sql-1-hour-course", true, 3000]);
+
+client.addRow("https://www.udemy.com/introduction-to-c++/",["course_title",
+"is_paid","price"]
+,["c++", true, 3000]);
+
+client.addRow("https://www.udemy.com/ubuntu-crash-course/",["course_title",
+"is_paid","price"]
+,["ubuntu-crash-course", true, 3000]);
+
+client.readRows(["https://www.udemy.com/postgres-sql-1-hour-course/", "https://www.udemy.com/create-simple-mongoDB-app/","https://www.udemy.com/frontend/"]);
+
+
+
+client.setCells("https://www.udemy.com/introduction-to-c++/",["course_title",
+"is_paid","price"]
+,["C++", false, 500]);
+
+client.deleteCells("https://www.udemy.com/create-simple-mongoDB-app/",["price"]);
+
+
+client.deleteRows(["https://www.udemy.com/postgres-sql-1-hour-course/", "https://www.udemy.com/create-simple-mongoDB-app/","https://www.udemy.com/frontend/"]);

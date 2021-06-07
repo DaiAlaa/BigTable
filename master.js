@@ -15,14 +15,10 @@ colors.setTheme({
 require('dotenv/config'); 
 db = require('./data-base/data-base-operations')
 
-const winston = require('winston');
-// const connection = require('./master/data-base-connection');
 var express = require('express');
 logger = require('./logger.js');
 const app = express();
-// connection(app);
 const { CourseMaster: CourseMaster, Metadata: Metadata }= require('./data-base/data-base-schema');
-// const operations = require('./data-base/data-base-operations');
 
 app.get('/', function (req, res) {
    res.send('Hello World');
@@ -94,10 +90,10 @@ io.on('connection', async function (socket) {
     })
 
     socket.on('message', async function(message){
-        logger.info(message);
+        io.emit('msg', message);
     })
     setInterval(async () => {
-        logger.info({"message":"master load balancing"});
+        io.emit('msg', {"message":"master load balancing"});
         await DivideData();
         io.emit('tablet-data-2', {data:[dataTablet2,dataTablet3], metadata: metadataTabletServer2});
         io.emit('tablet-data-1', {data:dataTablet1, metadata: metadataTabletServer1 });

@@ -1,0 +1,46 @@
+client.addRow("https://www.udemy.com/1-hour-golang/",["course_title",
+"is_paid","price"]
+,["learn go", true, 3000]);
+client.addRow("https://www.udemy.com/frontend/",["course_title",
+"is_paid","price"]
+,["basic frontend intro", true, 3000]);
+
+client.addRow("https://www.udemy.com/nodejs-tutorial/",["course_title",
+"is_paid","price"]
+,["nodejs-tutorial", true, 3000]);
+
+client.addRow("https://www.udemy.com/cooking-indomie-tutorial/",["course_title",
+"is_paid","price"]
+,["learn cooking", true, 3000]);
+
+client.addRow("https://www.udemy.com/i-love-coding-tutorial/",["course_title",
+"is_paid","price"]
+,["learn coding", true, 3000]);
+
+client.addRow("https://www.udemy.com/we-love-coding-tutorial/",["course_title",
+"is_paid","price"]
+,["learn cooking", true, 3000]);
+
+
+client.addRow("https://www.udemy.com/ruby-on-rails/",["course_title",
+"is_paid","price"]
+,["ruby-on-rails", true, 3000]);
+client.addRow("https://www.udemy.com/all-about-sockets/",["course_title",
+"is_paid","price"]
+,["all-about-sockets", true, 3000]);
+
+
+client.readRows(["https://www.udemy.com/introduction-to-c++/", "https://www.udemy.com/create-simple-mongoDB-app/"]);
+
+client.setCells("https://www.udemy.com/introduction-to-c++/",["course_title",
+"is_paid","price"]
+,["C++", false, 500]);
+
+client.setCells("https://www.udemy.com/create-simple-mongoDB-app/",["course_title",
+"is_paid","price"]
+,["mongodb app", true, 100]);
+
+
+client.deleteCells("https://www.udemy.com/postgres-sql-1-hour-course/",["price"]);
+
+client.deleteRows(["https://www.udemy.com/introduction-to-c++/", "https://www.udemy.com/create-simple-mongoDB-app/"]);
